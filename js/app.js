@@ -7,16 +7,28 @@
 
   var gems = [
     {
-      name: 'Dodecahedron',
+      name: 'Ball',
       price: 2.95,
       description: '. . .',
-      canPurchase: true
+      canPurchase: true,
+      images: [
+        {
+          full: 'img/toy1.png',
+          thumb: 'img/toy1-thumb.png',
+        }
+      ]
     },
     {
-      name: 'Pentagonal Gem',
+      name: 'Bear',
       price: 5,
       description: '. . .',
-      canPurchase: false
+      canPurchase: false,
+      images: [
+        {
+          full: 'img/toy2.png',
+          thumb: 'img/toy2-thumb.png',
+        }
+      ]
     }
   ];
 
