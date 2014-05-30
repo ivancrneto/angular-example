@@ -4,11 +4,11 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   </head>
   <body ng-controller="StoreController as store">
-    <div ng-hide="store.product.soldOut">
-      <h1>{{ store.product.name }}</h1>
-      <h2>${{ store.product.price }}</h2>
-      <p>{{ store.product.description }}</p>
-      <button ng-show="store.product.canPurchase">Add to Cart</button>
+    <div ng-repeat="product in store.products">
+      <h1>{{ product.name }}</h1>
+      <h2>${{ product.price }}</h2>
+      <p>{{ product.description }}</p>
+      <button type="button" class="btn btn-primary" ng-show="product.canPurchase">Add to Cart</button>
     </div>
 
     <script type="text/javascript" src="js/angular/angular.min.js"></script>
