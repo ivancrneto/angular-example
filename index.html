@@ -10,34 +10,34 @@
           <em class="pull-right">{{ product.price|currency }}</em>
           <img ng-src="{{ product.images[0].thumb }}">
         </h3>
-      <button type="button" class="btn btn-primary" ng-show="product.canPurchase">Add to Cart</button>
+        <button type="button" class="btn btn-primary" ng-show="product.canPurchase">Add to Cart</button>
 
-      <section ng-init="tab = 1">
+      <section ng-controller="PanelController as panel">
         <ul class="nav nav-pills">
-          <li ng-class="{ active: tab === 1 }">
-            <a href="#" ng-click="tab = 1">Description</a>
+          <li ng-class="{ active: panel.isSelected(1) }">
+            <a href="#" ng-click="panel.selectTab(1)">Description</a>
           </li>
-          <li ng-class="{ active: tab === 2 }">
-            <a href="#" ng-click="tab = 2">Recomendations</a>
+          <li ng-class="{ active: panel.isSelected(2) }">
+            <a href="#" ng-click="panel.selectTab(2)">Recomendations</a>
           </li>
-          <li ng-class="{ active: tab === 3 }">
-            <a href="#" ng-click="tab = 3">Reviews</a>
+          <li ng-class="{ active: panel.isSelected(3) }">
+            <a href="#" ng-click="panel.selectTab(3)">Reviews</a>
           </li>
         </ul>
-      </section>
 
-      <div class="panel" ng-show="tab === 1">
-        <h4>Description</h4>
-        <p>{{ product.description }}</p>
-      </div>
-      <div class="panel" ng-show="tab === 2">
-        <h4>Specifications</h4>
-        <blockquote>None yet</blockquote>
-      </div>
-      <div class="panel" ng-show="tab === 3">
-        <h4>Reviews</h4>
-        <blockquote>None yet</blockquote>
-      </div>
+        <div class="panel" ng-show="panel.isSelected(1)">
+          <h4>Description</h4>
+          <p>{{ product.description }}</p>
+        </div>
+        <div class="panel" ng-show="panel.isSelected(2)">
+          <h4>Specifications</h4>
+          <blockquote>None yet</blockquote>
+        </div>
+        <div class="panel" ng-show="panel.isSelected(3)">
+          <h4>Reviews</h4>
+          <blockquote>None yet</blockquote>
+        </div>
+      </section>
 
       </li>
     </ul>
