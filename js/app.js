@@ -16,7 +16,8 @@
           full: 'img/toy1.png',
           thumb: 'img/toy1-thumb.png',
         }
-      ]
+      ],
+      reviews: []
     },
     {
       name: 'Bear',
@@ -28,7 +29,8 @@
           full: 'img/toy2.png',
           thumb: 'img/toy2-thumb.png',
         }
-      ]
+      ],
+      reviews: []
     }
   ];
 
@@ -40,6 +42,15 @@
     };
     this.isSelected = function(checkTab) {
       return this.tab == checkTab;
+    }
+  });
+
+  app.controller('ReviewController', function(){
+    this.review = {};
+
+    this.addReview = function(product){
+      product.reviews.push(this.review);
+      this.review = {};
     }
   });
 

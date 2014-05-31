@@ -42,14 +42,15 @@
           </blockquote>
 
           <h4>Submit a review</h4>
-          <form action="" name="reviewForm">
+          <form action="" name="reviewForm" ng-controller="ReviewController as reviewCtrl"
+                                            ng-submit="reviewCtrl.addReview(product)">
             <blockquote>
-              <b>{{ review.stars }} Stars</b>
-              {{ review.body }}
-              <cite class="clearfix">- {{ review.author }}</cite>
+              <b>{{ reviewCtrl.review.stars }} Stars</b>
+              {{ reviewCtrl.review.body }}
+              <cite class="clearfix">- {{ reviewCtrl.review.author }}</cite>
             </blockquote>
             <fieldset class="form-group">
-              <select class="form-control" ng-model="review.stars">
+              <select class="form-control" ng-model="reviewCtrl.review.stars">
                 <option value="1">1 star</option>
                 <option value="2">2 stars</option>
                 <option value="3">3 stars</option>
@@ -58,10 +59,10 @@
               </select>
             </fieldset>
             <fieldset class="form-group">
-              <textarea class="form-control" ng-model="review.body"></textarea>
+              <textarea class="form-control" ng-model="reviewCtrl.review.body"></textarea>
             </fieldset>
             <fieldset class="form-group">
-              <input class="form-control" ng-model="review.author" type="email">
+              <input class="form-control" ng-model="reviewCtrl.review.author" type="email">
             </fieldset>
             <fieldset class="form-group">
               <input class="btn btn-success pull-right" type="submit" value="Submit">
