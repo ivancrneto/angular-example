@@ -7,7 +7,7 @@
   <body ng-controller="StoreController as store">
     <ul class="list-group">
       <li class="list-group-item" ng-repeat="product in store.products">
-        <product-title></product-title>
+        <h3 product-title></h3>
         <button type="button" class="btn btn-primary" ng-show="product.canPurchase">Add to Cart</button>
 
       <section ng-controller="PanelController as panel">

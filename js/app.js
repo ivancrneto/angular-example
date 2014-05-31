@@ -31,7 +31,7 @@
         }
       ],
       reviews: []
-    }
+    };
   ];
 
   app.controller('PanelController', function(){
@@ -42,7 +42,7 @@
     };
     this.isSelected = function(checkTab) {
       return this.tab == checkTab;
-    }
+    };
   });
 
   app.controller('ReviewController', function(){
@@ -51,14 +51,14 @@
     this.addReview = function(product){
       product.reviews.push(this.review);
       this.review = {};
-    }
+    };
   });
 
   app.directive('productTitle', function(){
     return {
-      restrict: 'E',
+      restrict: 'A',
       templateUrl: 'product-title.html'
-    }
+    };
   });
 
 })();
