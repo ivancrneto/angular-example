@@ -2,6 +2,7 @@
 <html ng-app="store">
   <head>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body ng-controller="StoreController as store">
     <ul class="list-group">
@@ -43,14 +44,14 @@
 
           <h4>Submit a review</h4>
           <form action="" name="reviewForm" ng-controller="ReviewController as reviewCtrl"
-                                            ng-submit="reviewCtrl.addReview(product)">
+                ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
             <blockquote>
               <b>{{ reviewCtrl.review.stars }} Stars</b>
               {{ reviewCtrl.review.body }}
               <cite class="clearfix">- {{ reviewCtrl.review.author }}</cite>
             </blockquote>
             <fieldset class="form-group">
-              <select class="form-control" ng-model="reviewCtrl.review.stars">
+              <select class="form-control" ng-model="reviewCtrl.review.stars" required>
                 <option value="1">1 star</option>
                 <option value="2">2 stars</option>
                 <option value="3">3 stars</option>
@@ -59,10 +60,10 @@
               </select>
             </fieldset>
             <fieldset class="form-group">
-              <textarea class="form-control" ng-model="reviewCtrl.review.body"></textarea>
+              <textarea class="form-control" ng-model="reviewCtrl.review.body" required></textarea>
             </fieldset>
             <fieldset class="form-group">
-              <input class="form-control" ng-model="reviewCtrl.review.author" type="email">
+              <input class="form-control" ng-model="reviewCtrl.review.author" type="email" required>
             </fieldset>
             <fieldset class="form-group">
               <input class="btn btn-success pull-right" type="submit" value="Submit">
