@@ -1,38 +1,16 @@
 (function() {
   var app = angular.module('store', ['store-products']);
 
-  app.controller('StoreController', function(){
-    this.products = gems;
-  });
+  app.controller('StoreController', ['$http', '$log', function($http, $log){
+    var store = this;
+    store.products = [];
 
-  var gems = [
-    {
-      name: 'Ball',
-      price: 2.95,
-      description: '. . .',
-      canPurchase: true,
-      images: [
-        {
-          full: 'img/toy1.png',
-          thumb: 'img/toy1-thumb.png',
-        }
-      ],
-      reviews: []
-    },
-    {
-      name: 'Bear',
-      price: 5,
-      description: '. . .',
-      canPurchase: false,
-      images: [
-        {
-          full: 'img/toy2.png',
-          thumb: 'img/toy2-thumb.png',
-        }
-      ],
-      reviews: []
-    }
-  ];
+    $http.get('/products.json').success(function(data){
+      store.products = data;
+      $log.log(JSON.stringify(store.products));
+    });
+
+  }]);
 
   app.controller('ReviewController', function(){
     this.review = {};
